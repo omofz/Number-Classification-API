@@ -11,7 +11,19 @@ def is_armstrong(num: int) -> bool:
     power = len(digits)
     return sum(digit ** power for digit in digits) == num
 
-def get_number_properties(num: int, is_armstrong_number: bool) -> list:
+async def get_number_properties(num: int, is_armstrong_number: bool) -> list:
     if is_armstrong_number:
-        return ["armstron", "even"] if num % 2 == 0 else ["armstrong", "odd"]
+        return ["armstrong", "even"] if num % 2 == 0 else ["armstrong", "odd"]
     return ["even"] if num % 2 == 0 else ["odd"]
+
+if __name__ == "__main__":
+    num = int(input("Enter a number: "))
+    
+    is_armstrong_number = is_armstrong(num)
+    is_prime_number = is_prime(num)
+    digit_sum = sum(int(digit) for digit in str(num))
+    
+    import asyncio
+    properties = asyncio.run(get_number_properties(num, is_armstrong_number))
+
+    print(is_armstrong_number, is_prime_number, digit_sum, properties)
