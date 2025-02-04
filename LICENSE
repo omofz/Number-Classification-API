@@ -672,3 +672,28 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+### Running the Project
+
+1. **Local Development:**
+
+   - After installing dependencies, run the API locally with:
+     ```bash
+     uvicorn app.main:app --reload
+     ```
+   - Test by navigating to:
+     ```
+     http://127.0.0.1:8000/api/classify-number?number=371
+     ```
+
+2. **Command Line Testing (Optional):**
+
+   - You can run the standalone test in `utils.py`:
+     ```bash
+     python app/utils.py
+     ```
+   - This will prompt you for a number and print its classification properties.
+
+This solution meets the specified criteria, including CORS handling, JSON responses, and appropriate error handling. Feel free to update the README with your public endpoint details when deploying.
+
